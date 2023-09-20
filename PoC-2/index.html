@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>PoC 2: CSS page break styling</h1>
+    <section>
+      <p>
+        <i>
+          This PoC is meant to test CSS properties of `break-before`,
+          `break-after` and `break-inside`.
+        </i>
+      </p>
+      <p>
+        <i>
+          For details of all the properties, please refer to
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fragmentation"
+            >here</a
+          >
+        </i>
+      </p>
+
+      <br />
+      <strong>For headers: </strong>
+
+      <ul>
+        <li>
+          <div class="property-label">break-before</div>
+          <div>
+            <input type="radio" value="auto" name="headerBreakBefore" checked />
+            auto
+            <input type="radio" value="page" name="headerBreakBefore" /> page
+            <input type="radio" value="avoid" name="headerBreakBefore" />
+            avoid
+          </div>
+        </li>
+        <li>
+          <div class="property-label">break-after</div>
+          <div>
+            <input type="radio" value="auto" name="headerBreakAfter" checked />
+            auto
+            <input type="radio" value="page" name="headerBreakAfter" /> page
+            <input type="radio" value="avoid" name="headerBreakAfter" />
+            avoid
+          </div>
+        </li>
+      </ul>
+      <hr />
+
+      <strong>For table: </strong>
+      <ul>
+        <li>
+          <div class="property-label">break-before</div>
+          <div>
+            <input
+              type="radio"
+              <input
+              type="radio"
+              name="tableBreakBefore"
+              value="auto"
+              checked
+            />
+            auto
+            <input type="radio" name="tableBreakBefore" value="page" />
+            page
+            <input type="radio" name="tableBreakBefore" value="avoid" />
+            avoid
+          </div>
+        </li>
+        <li>
+          <div class="property-label">break-after</div>
+          <div>
+            <input type="radio" name="tableBreakAfter" value="auto" checked />
+            auto
+            <input type="radio" name="tableBreakAfter" value="page" /> page
+            <input type="radio" name="tableBreakAfter" value="avoid" />
+            avoid
+          </div>
+        </li>
+        <li>
+          <div class="property-label">break-inside</div>
+          <div>
+            <input type="radio" value="auto" name="tableBreakInside" checked />
+            auto
+            <input type="radio" name="tableBreakInside" value="page" /> page
+            <input type="radio" name="tableBreakInside" value="avoid" />
+            avoid
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <div class="operations">
+      <button class="print" onclick="window.print()">
+        Click to Print / Download PDF
+      </button>
+    </div>
+
+    <h2>Simple table with header</h2>
+    <table>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>Doe</td>
+      </tr>
+    </table>
+
+    <h2>Table with thead, tfoot, and tbody</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Header content 1</th>
+          <th>Header content 2</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Footer content 1</td>
+          <td>Footer content 2</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+        <tr>
+          <td>Body content 1</td>
+          <td>Body content 2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Table with colgroup</h2>
+    <table>
+      <colgroup span="4"></colgroup>
+      <tr>
+        <th>Countries</th>
+        <th>Capitals</th>
+        <th>Population</th>
+        <th>Language</th>
+      </tr>
+      <tr>
+        <td>USA</td>
+        <td>Washington D.C.</td>
+        <td>309 million</td>
+        <td>English</td>
+      </tr>
+      <tr>
+        <td>Sweden</td>
+        <td>Stockholm</td>
+        <td>9 million</td>
+        <td>Swedish</td>
+      </tr>
+    </table>
+
+    <h2>Table with colgroup and col</h2>
+    <table>
+      <colgroup>
+        <col style="background-color: #0f0" />
+        <col span="2" />
+      </colgroup>
+      <tr>
+        <th>Lime</th>
+        <th>Lemon</th>
+        <th>Orange</th>
+      </tr>
+      <tr>
+        <td>Green</td>
+        <td>Yellow</td>
+        <td>Orange</td>
+      </tr>
+      <tr>
+        <td>Green</td>
+        <td>Yellow</td>
+        <td>Orange</td>
+      </tr>
+      <tr>
+        <td>Green</td>
+        <td>Yellow</td>
+        <td>Orange</td>
+      </tr>
+    </table>
+
+    <h2>Simple table with caption</h2>
+    <table>
+      <caption>
+        Awesome caption
+      </caption>
+      <tr>
+        <td>Awesome data</td>
+      </tr>
+    </table>
+  </body>
+  <script src="index.js"></script>
+</html>

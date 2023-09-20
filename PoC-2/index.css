@@ -1,0 +1,72 @@
+/* Printing Style CSS */
+
+/* force background-image to show in print window under default condition */
+/* body {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+} */
+
+@media print {
+  @page {
+    size: a4 portrait;
+  }
+
+  section,
+  button {
+    display: none;
+  }
+}
+/* Printing Style CSS */
+
+body {
+  margin: 20px;
+}
+
+section {
+  border: 2px solid lightgray;
+  padding: 8px 16px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 16px;
+  margin: 8px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+.operations {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+table,
+td {
+  border: 1px solid #333;
+}
+
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
+}
+
+li {
+  display: flex;
+  margin: 4px 0;
+}
+
+.property-label {
+  width: 120px;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
