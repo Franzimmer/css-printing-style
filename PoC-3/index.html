@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>PoC 3: CSS flex / grid when printing</h1>
+    <section class="note">
+      <p>
+        <i>
+          This PoC is meant to find out the possible limitations to use CSS flex
+          / grid together with CSS fragmentation.
+        </i>
+      </p>
+      <div class="layout-options">
+        <strong>Options: </strong>
+        <input type="radio" name="layout" value="flex" /> flex
+        <input type="radio" name="layout" value="grid" checked /> grid
+        <input type="radio" name="layout" value="flexFrag" /> flex +
+        fragmentation <input type="radio" name="layout" value="gridFrag" /> grid
+        + fragmentation
+      </div>
+      <div class="fragmentation-options hidden">
+        <ul>
+          <li>
+            <div class="property-label">break-before</div>
+            <div>
+              <input
+                type="radio"
+                <input
+                type="radio"
+                name="breakBefore"
+                value="auto"
+                checked
+              />
+              auto
+              <input type="radio" name="breakBefore" value="page" />
+              page
+              <input type="radio" name="breakBefore" value="avoid" />
+              avoid
+            </div>
+          </li>
+          <li>
+            <div class="property-label">break-after</div>
+            <div>
+              <input type="radio" name="breakAfter" value="auto" checked />
+              auto
+              <input type="radio" name="breakAfter" value="page" /> page
+              <input type="radio" name="breakAfter" value="avoid" />
+              avoid
+            </div>
+          </li>
+          <li>
+            <div class="property-label">break-inside</div>
+            <div>
+              <input type="radio" value="auto" name="breakInside" checked />
+              auto
+              <input type="radio" name="breakInside" value="page" /> page
+              <input type="radio" name="breakInside" value="avoid" />
+              avoid
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="operations">
+      <button class="print" onclick="window.print()">
+        Click to Print / Download PDF
+      </button>
+    </div>
+
+    <section id="flex" class="hidden">
+      <h2>Flex properties tests</h2>
+      <h3>justify-content: center + align-items: center</h3>
+      <div class="flex-wrapper-1">
+        <div class="flex-item">item 1</div>
+        <div class="flex-item">item 2</div>
+        <div class="flex-item">item 3</div>
+      </div>
+      <h3>align-content: center</h3>
+      <div class="flex-wrapper-2">
+        <div class="flex-item">item 1</div>
+        <div class="flex-item">item 2</div>
+        <div class="flex-item">item 3</div>
+        <div class="flex-item">item 4</div>
+        <div class="flex-item">item 5</div>
+        <div class="flex-item">item 6</div>
+        <div class="flex-item">item 7</div>
+        <div class="flex-item">item 8</div>
+        <div class="flex-item">item 9</div>
+        <div class="flex-item">item 10</div>
+        <div class="flex-item">item 11</div>
+        <div class="flex-item">item 12</div>
+        <div class="flex-item">item 13</div>
+        <div class="flex-item">item 14</div>
+        <div class="flex-item">item 15</div>
+        <div class="flex-item">item 16</div>
+        <div class="flex-item">item 17</div>
+        <div class="flex-item">item 18</div>
+        <div class="flex-item">item 19</div>
+        <div class="flex-item">item 20</div>
+      </div>
+      <h3>flex-basis</h3>
+      <div class="flex-wrapper-3">
+        <div class="flex-item flex-basis-1">auto</div>
+        <div class="flex-item flex-basis-2">max-content</div>
+        <div class="flex-item flex-basis-3">min</div>
+        <div class="flex-item flex-basis-4">300px</div>
+      </div>
+      <h3>flex-grow</h3>
+      <div class="flex-wrapper-4">
+        <div class="flex-item flex-grow-3">3</div>
+        <div class="flex-item flex-grow-1">1</div>
+        <div class="flex-item flex-grow-2">2</div>
+      </div>
+      <h3>flex-direction</h3>
+      <div class="flex-wrapper-5">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+      </div>
+    </section>
+
+    <section id="grid">
+      <h2>Grid properties</h2>
+      <h3>grid-template-columns: 200px + grid-template-rows: 300px</h3>
+      <div class="grid-wrapper-1">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+      </div>
+      <h3>fraction (fr)</h3>
+      <div class="grid-wrapper-2">
+        <div class="grid-item">3 fr</div>
+        <div class="grid-item">2 fr</div>
+        <div class="grid-item">1 fr</div>
+        <div class="grid-item">3 fr</div>
+        <div class="grid-item">2 fr</div>
+      </div>
+      <h3>grid lines</h3>
+      <div class="grid-wrapper-3">
+        <div class="grid-item box1">box 1</div>
+        <div class="grid-item box2">box 2</div>
+        <div class="grid-item">box 3</div>
+        <div class="grid-item">box 4</div>
+        <div class="grid-item">box 5</div>
+      </div>
+    </section>
+
+    <div class="items hidden">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+      <div class="item">11</div>
+      <div class="item">12</div>
+      <div class="item">13</div>
+      <div class="item">14</div>
+      <div class="item">15</div>
+      <div class="item">16</div>
+      <div class="item">17</div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
